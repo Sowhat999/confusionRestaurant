@@ -1,23 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardText, CardImg, CardBody, CardTitle } from 'reactstrap';
-
-class DishDetail extends Component {
-
-    constructor(props){
-        super(props);
-
-        this.state = {
-            selectedDish: this.props.selectedDish
-        };
-        console.log('Menu Component constructor is invoked');
-    }
-
-    componentDidMount(){
-        console.log('Menu Component componentDidMount is invoked');
-    }
     
-    renderDish(dish){
-        if(dish != null){
+    function RenderDish({dish}){
             return(
                
                    <Card>
@@ -30,21 +14,17 @@ class DishDetail extends Component {
                
             )
         }
-        else{
-            return(
-                <div></div>
-            );
-        }
-    }
 
-    renderComments(dish){
-        if(dish != null){
-            const comments = dish.comments.map((comment) => {
+    function RenderComments({comments}){
+            const eachComment = comments.map((comment) => {
                 return (
                     <div key={comment.id}>
                         <ul className="list-unstyled">
                       <li>{comment.comment}<br/>
-                      --{comment.author}, {comment.date}
+                      --{comment.author}, {new Intl.DateTimeFormat(
+                          'en-US',
+                          {year: 'numeric', month: 'short', day: '2-digit'}).format(
+                              new Date(Date.parse(comment.date)))}
                       </li>
                       </ul>      
 
@@ -55,38 +35,31 @@ class DishDetail extends Component {
                 <div>
                    <h4>Comments</h4>
                         
-                        {comments}
+                        {eachComment}
                        
                 </div>
             )
         }
-        else{
-            return(
-                <div></div>
-            );
-        }
-    }
-    render(){
-          
-        console.log('Menu Component render is invoked');
-        if(this.props.selectedDish == null){
-            return (<div></div>)
-        }
-        else
-        return (
 
+
+    const DishDetail = (props) => {
+          
+        if(props.dish != null){
+            return (
             <div className="container">
                 <div className="row"> 
                 <div className="col-12 col-md-5 m-1">                
-                {this.renderDish(this.state.selectedDish)}
+                <RenderDish dish={props.dish} />
                 </div>
                 <div className="col-12 col-md-5 m-1">
-                {this.renderComments(this.state.selectedDish)}
+                <RenderComments comments={props.dish.comments} />
                 </div>  
                 </div>
             </div>
         );
     }
+    else return (<div className="container"></div>)
+    
 }
 
 export default DishDetail;
