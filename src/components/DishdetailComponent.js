@@ -1,16 +1,18 @@
 import React from 'react';
+import Comment from './CommentForm';
 import { Card, CardText, CardImg, CardBody, CardTitle,Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';    
     function RenderDish({dish}){
             return(
-               
-                   <Card>
-                    <CardBody>
-                     <CardImg width="100%" src={dish.image} alt={dish.name} />
-                        <CardTitle>{dish.name}</CardTitle>
-                        <CardText>{dish.description}</CardText>
-                    </CardBody>
-                </Card>
+                <div className="col-12 col-md-5 m-1">  
+                    <Card>
+                        <CardBody>
+                            <CardImg width="100%" src={dish.image} alt={dish.name} />
+                            <CardTitle>{dish.name}</CardTitle>
+                            <CardText>{dish.description}</CardText>
+                        </CardBody>
+                   </Card>
+                </div>
                
             )
         }
@@ -27,17 +29,22 @@ import { Link } from 'react-router-dom';
                               new Date(Date.parse(comment.date)))}
                       </li>
                       </ul>      
-
                     </div>
                 )
             });
             return(
-                <div>
-                   <h4>Comments</h4>
-                        
-                        {eachComment}
-                       
+                <div className="col-12 col-md-5 m-1">
+                    <div>
+                        <h4>Comments</h4>
+                                
+                                {eachComment}
+                            
+                    </div>
+                    <div>
+                        <Comment/>
+                    </div>
                 </div>
+               
             )
         }
 
@@ -57,14 +64,10 @@ import { Link } from 'react-router-dom';
                         <h3>{props.dish.name}</h3>
                         <hr />
                     </div>
-                    </div>
-                <div className="row"> 
-                <div className="col-12 col-md-5 m-1">                
-                <RenderDish dish={props.dish} />
                 </div>
-                <div className="col-12 col-md-5 m-1">
-                <RenderComments comments={props.comments} />
-                </div>  
+                <div className="row">                              
+                    <RenderDish dish={props.dish} />           
+                    <RenderComments comments={props.comments} /> 
                 </div>
             </div>
         );
