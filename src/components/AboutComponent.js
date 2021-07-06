@@ -1,7 +1,8 @@
 import React from 'react';
-import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, CardImg, CardTitle, Media } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../shared/baseUrl';
+import { Loading } from './LoadingComponent';
 import { Fade, Stagger } from 'react-animation-components';
 
 
@@ -9,11 +10,23 @@ function About(props) {
 
     const leaders = props.leaders.leaders.map((leader) => {
         return (
-            <RenderLeader leader={leader} />
+            <RenderLeader leader={leader} isLoading={props.leadersLoading} errMess={props.leadersErrMess} />
         );
     });
 
-    function RenderLeader({leader}) {
+    function RenderLeader({leader, isLoading, errMess}) {
+    
+        if (isLoading) {
+            return(
+                    <Loading />
+            );
+        }
+        else if (errMess) {
+            return(
+                    <h4>{errMess}</h4>
+            );
+        }
+        else
         return (
             <Stagger in>
             <div className="col-12 mt-5" key={leader.id}>
