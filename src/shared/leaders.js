@@ -1,8 +1,8 @@
 export const LEADERS = [
     {
       id: 0,
-      name: 'Peter Pan',
-      image: '/assets/images/alberto.png',
+      name: 'Amanda Smith',
+      image: '/assets/images/Amanda_Smith.jpg',
       designation: 'Chief Epicurious Officer',
       abbr: 'CEO',
       featured: false,
@@ -10,8 +10,8 @@ export const LEADERS = [
     },
     {
       id: 1,
-      name: 'Dhanasekaran Witherspoon',
-      image: '/assets/images/alberto.png',
+      name: 'Miranda Witherspoon',
+      image: '/assets/images/Miranda_Witherspoon.jpg',
       designation: 'Chief Food Officer',
       abbr: 'CFO',
         featured: false,
@@ -19,8 +19,8 @@ export const LEADERS = [
     },
     {
       id: 2,
-      name: 'Agumbe Tang',
-      image: '/assets/images/alberto.png',
+      name: 'Sarah Mae',
+      image: '/assets/images/Sarah_Mae.jpg',
       designation: 'Chief Taste Officer',
       abbr: 'CTO',
         featured: false,
@@ -28,8 +28,8 @@ export const LEADERS = [
     },
     {
       id: 3,
-      name: 'Alberto Somayya',
-      image: '/assets/images/alberto.png',
+      name: 'Albert Somayya',
+      image: '/assets/images/Albert_Somayya.jpg',
       designation: 'Executive Chef',
       abbr: 'EC',
       featured: true,
