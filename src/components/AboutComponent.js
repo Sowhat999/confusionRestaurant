@@ -33,7 +33,7 @@ function About(props) {
             <Fade in>
                 <Media>
                 
-                    <Media object src={baseUrl + leader.image} alt={leader.name} />
+                    <Media object src={baseUrl + leader.image} width="150px" alt={leader.name} />
                     <Media body className="ml-5" key={leader.id}>
                     
                         <Media heading>
