@@ -32,11 +32,13 @@ class Header extends Component{
         + " Remember: " + this.remember.checked);
         event.preventDefault();
     }
+      
 
     render(){
         return(
+            
             <>
-        <Navbar dark expand="md">
+        <Navbar light expand="md">
           <div className="container">
               <NavbarToggler onClick={this.toggleNav} />
             <NavbarBrand className="mr-auto" href="/">
@@ -76,12 +78,13 @@ class Header extends Component{
         </Collapse>
           </div>
         </Navbar>
-        <Jumbotron>
+        <Jumbotron style={{ backgroundImage: "url(assets/images/Ristorante_Masthead.png)", alt:"Ristorante Con Fusion", backgroundSize: 'cover' }}>
             <div className="container">
                 <div className="row row-header">
                     <div className="col-12 col-sm-6">
-                        <h1>Ristorante Con Fusion</h1>
-                        <o>We take inspiration from the World's best buisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</o>
+                    <h1 hidden="true">Ristorante Con Fusion</h1> 
+                        <p id="headerDesc" hidden="true">We take inspiration from the World's best buisines, and create a unique fusion experience. Our lipsmacking creations will tickle your culinary senses!</p>
+                    <br/><br/><br/>
                     </div>
                 </div>
             </div>
